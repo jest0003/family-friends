@@ -1,3 +1,6 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 import {
   Geist,
   Geist_Mono,
@@ -25,7 +28,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col m-4">
         <Header />
         {children}
         <Footer />
