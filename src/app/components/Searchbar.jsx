@@ -10,7 +10,7 @@ const Searchbar = () => {
       <input
         type="search"
         placeholder="Search breeds"
-        className="rounded-full border-solid border-1 ml-4 p-2"
+        className="rounded-full border-solid border-1 ml-4 p-2 bg-white"
       />
     </nav>
   );

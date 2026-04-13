@@ -35,3 +35,12 @@ footer {
     color: grey;
   }
 }
+.star-anchor {
+  anchor-name: --fav-anchor;
+}
+.anchored {
+  position: absolute;
+  position-anchor: --fav-anchor;
+  top: calc(anchor(top) + 10px);
+  right: calc(anchor(right) + 10px);
+}

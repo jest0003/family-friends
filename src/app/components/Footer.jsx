@@ -5,7 +5,7 @@ import { FiUser } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-around mt-4">
+    <footer className="flex justify-around pt-4 pb-4  bg-stone-50">
       <FiHome className="icon" />
       <FaRegStar className="icon" />
       <IoChatbubbleOutline className="icon" />

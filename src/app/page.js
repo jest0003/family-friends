@@ -1,16 +1,18 @@
-import Image from "next/image";
 import Searchbar from "./components/Searchbar";
+import Card from "./components/Card";
 
 export default function Home() {
   return (
-    <main>
+    <main className=" bg-stone-50">
       <Searchbar />
-      <Image
-        src="https://placecats.com/g/299/299"
-        alt="Picture of the author"
-        width={300}
-        height={200}
-      />
+      <section className="flex flex-wrap justify-between">
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+      </section>
     </main>
   );
 }
