@@ -35,7 +35,7 @@ footer {
     color: grey;
   }
 }
-.star-anchor {
+/* .star-anchor {
   anchor-name: --fav-anchor;
 }
 .anchored {
@@ -43,4 +43,4 @@ footer {
   position-anchor: --fav-anchor;
   top: calc(anchor(top) + 10px);
   right: calc(anchor(right) + 10px);
-}
+} */
