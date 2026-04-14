@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const DoggoList = () => {
   return (
-    <section className="flex flex-wrap justify-between">
+    <section className="flex flex-wrap justify-between items-start">
       <FetchBreed />
     </section>
   );

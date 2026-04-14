@@ -7,7 +7,7 @@ const Card = ({
   doggoPicture,
 }) => {
   return (
-    <section className="rounded-2xl bg-white">
+    <section className="rounded-2xl bg-white max-h-fit mb-4 shadow-md">
       <div className="relative">
         <FaRegStar
           color="white"
