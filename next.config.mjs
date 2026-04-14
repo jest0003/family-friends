@@ -5,7 +5,14 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "placecats.com",
+        hostname: "storage.googleapis.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn4.thedogapi.com",
         port: "",
         pathname: "/**",
         search: "",
