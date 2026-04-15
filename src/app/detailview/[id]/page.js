@@ -1,18 +1,35 @@
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
+import Link from "next/link";
 
-export default function Detailview() {
+const Detailview = async ({ params }) => {
+  const { id } = await params;
+
+  const response = await fetch(
+    `https://api.thedogapi.com/v1/breeds/${id}`,
+    {
+      headers: {
+        "x-api-key": process.env.API_KEY,
+      },
+    },
+  );
+  const doggoData = await response.json();
+
   return (
     <main className="pt-16 pb-16 bg-stone-50">
       <section className="relative">
-        <IoIosArrowBack className="icon absolute left-4 top-4 bg-[rgba(254,254,254,0.88)] rounded-full p-0.5 pr-1" />
+        <Link href="/">
+          <button className="absolute left-4 top-4">
+            <IoIosArrowBack className="icon bg-[rgba(254,254,254,0.88)] rounded-full p-0.5 pr-1" />
+          </button>
+        </Link>
         <FaRegStar
           color="white"
           className="icon absolute right-4 top-4 bg-[rgba(254,254,254,0.25)] rounded-full p-0.5"
         />
         <Image
-          src="https://cdn4.thedogapi.com/optimized/V9dkIFu7OB.jpg"
+          src={doggoData.image.url}
           alt="Picture of the doggo"
           width={390}
           height={100}
@@ -20,19 +37,19 @@ export default function Detailview() {
         />
         <div className="flex absolute bottom-4 left-4 bg-[rgba(95,95,95,0.3)] backdrop-blur-sm rounded-3xl p-2">
           <Image
-            src="https://cdn4.thedogapi.com/optimized/V9dkIFu7OB.jpg"
+            src={doggoData.image.url}
             alt="Picture of the doggo"
             width={48}
             height={48}
             className="rounded-3xl aspect-square"
           />
           <p className="text-white m-2 text-sm">
-            Breed name
+            {doggoData.name}
           </p>
         </div>
       </section>
       <h1 className="font-medium text-2xl mt-4 mb-4">
-        Breeeeeeeeed.
+        {doggoData.name}
       </h1>
       <div className="mb-4">
         <span className="bg-blue-200 mr-2 p-2 pl-4 pr-4 text-green-700 rounded-full">
@@ -52,14 +69,13 @@ export default function Detailview() {
       <p className="mt-3 text-sm text-stone-400">
         Breed description
       </p>
-      <p>Beskrivelse kommer til at stå her</p>
+      <p>{doggoData.description}</p>
       <p className="mt-3 text-sm text-stone-400">
         Breed hirstory
       </p>
-      <p>
-        Her kommer der nok til at være noget om
-        hirstorien, surrprice!
-      </p>
+      <p>{doggoData.history}</p>
     </main>
   );
-}
+};
+
+export default Detailview;

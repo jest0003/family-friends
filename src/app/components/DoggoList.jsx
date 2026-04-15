@@ -24,17 +24,13 @@ const FetchBreed = async () => {
 
     return breeds.map((breed) => {
       return (
-        <Link
+        <Card
           key={breed.id}
-          href={`/detailview/${breed.id}`}
-        >
-          <Card
-            key={breed.id}
-            breedGroup={breed.breed_group}
-            origin={breed.origin}
-            doggoPicture={breed.image.url}
-          />
-        </Link>
+          id={breed.id}
+          breedGroup={breed.name}
+          origin={breed.origin}
+          doggoPicture={breed.image.url}
+        />
       );
     });
   } catch (error) {
