@@ -1,4 +1,5 @@
 import Card from "./Card";
+import Link from "next/link";
 
 const DoggoList = () => {
   return (
@@ -22,12 +23,17 @@ const FetchBreed = async () => {
 
   return breeds.map((breed) => {
     return (
-      <Card
+      <Link
         key={breed.id}
-        breedGroup={breed.breed_group}
-        origin={breed.origin}
-        doggoPicture={breed.image.url}
-      />
+        href={`/detailview/${breed.id}`}
+      >
+        <Card
+          key={breed.id}
+          breedGroup={breed.breed_group}
+          origin={breed.origin}
+          doggoPicture={breed.image.url}
+        />
+      </Link>
     );
   });
 };
