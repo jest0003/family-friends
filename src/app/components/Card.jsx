@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { FaRegStar } from "react-icons/fa";
 import Link from "next/link";
+import Favorite from "./FavoriteElement";
 
 const Card = ({
   breedGroup,
@@ -10,10 +10,7 @@ const Card = ({
 }) => {
   return (
     <section className="rounded-2xl bg-white max-h-fit mb-4 relative shadow-md">
-      <FaRegStar
-        color="white"
-        className="icon absolute right-1 top-1 bg-[rgba(254,254,254,0.25)] z-999 rounded-full p-0.5"
-      />
+      <Favorite id={id} />
       <Link
         key={id}
         href={`/detailview/${id}`}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FaRegStar } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import Link from "next/link";
+import Favorite from "@/app/components/FavoriteElement";
 
 const Detailview = async ({ params }) => {
   const { id } = await params;
@@ -20,14 +21,15 @@ const Detailview = async ({ params }) => {
     <main className="pt-16 pb-16 bg-stone-50">
       <section className="relative">
         <Link href="/">
-          <button className="absolute left-4 top-4">
+          <button className="absolute left-2 top-2">
             <IoIosArrowBack className="icon bg-[rgba(254,254,254,0.88)] rounded-full p-0.5 pr-1" />
           </button>
         </Link>
-        <FaRegStar
+        <Favorite id={id} />
+        {/* <FaRegStar
           color="white"
           className="icon absolute right-4 top-4 bg-[rgba(254,254,254,0.25)] rounded-full p-0.5"
-        />
+        /> */}
         <Image
           src={doggoData.image.url}
           alt="Picture of the doggo"
