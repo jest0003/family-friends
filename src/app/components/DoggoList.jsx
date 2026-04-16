@@ -1,19 +1,22 @@
 import Card from "./Card";
 import Link from "next/link";
 
-const DoggoList = () => {
+const DoggoList = ({ searchParams }) => {
   return (
     <section className="flex flex-wrap justify-between items-start">
-      <FetchBreed />
+      <FetchBreed searchParams= {searchParams} />
     </section>
   );
 };
 
-const FetchBreed = async () => {
+const FetchBreed = async ({searchParams}) => {
   "use server";
+  const {query} = await searchParams;
+  const url = query ?
+  `https://api.thedogapi.com/v1/breeds/search?q=${query}` : "https://api.thedogapi.com/v1/breeds";
   try {
     const response = await fetch(
-      "https://api.thedogapi.com/v1/breeds",
+      url,
       {
         headers: {
           "x-api-key": process.env.API_KEY,
